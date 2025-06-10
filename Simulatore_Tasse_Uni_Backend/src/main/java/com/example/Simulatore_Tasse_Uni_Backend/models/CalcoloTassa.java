@@ -1,6 +1,7 @@
 package com.example.Simulatore_Tasse_Uni_Backend.models;
-import java.util.Scanner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CalcoloTassa {
     private float valoreISEE; //Valore ISEE espresso in decimale
 
