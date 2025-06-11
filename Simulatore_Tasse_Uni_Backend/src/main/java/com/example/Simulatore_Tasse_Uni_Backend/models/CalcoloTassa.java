@@ -1,33 +1,66 @@
 package com.example.Simulatore_Tasse_Uni_Backend.models;
-import org.springframework.stereotype.Component;
 
-@Component
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table (name = "fascia_reddito")
 public class CalcoloTassa {
-    private float valoreISEE; //Valore ISEE espresso in decimale
+    @Id
+    private int fascia_id;
+    //Con Column dico il nome della colonna di riferimento
+    @Column (name = "numero_fascia")
+    private String numeroFascia;
 
-    public String calcolaFascia(float valoreISEE) {
-        if(valoreISEE < 1000.00) {
-            return "No tax area";
-        } else if (valoreISEE >= 1000.00 && valoreISEE < 2000.00) {
-            return "Fascia 1, la tua tassa è 100 euro";
-        } else if (valoreISEE >= 2000.00 && valoreISEE < 3000.00) {
-            return "Fascia 2, la tua tassa è 200 euro";
-        } else if (valoreISEE >= 3000.00 && valoreISEE < 4000.00) {
-            return "Fascia 3, la tua tassa è 300 euro";
-        } else {
-            return "Fascia 4, la tua tassa è 1000 euro";
-        }
+    @Column (name = "prima_rata")
+    private float primaRata;
+
+    @Column (name = "seconda_rata")
+    private float secondaRata;
+
+    @Column (name = "terza_rata")
+    private float terzaRata;
+
+    //Getter e setter di ogni campo
+    public int getFascia_id() {
+        return fascia_id;
     }
 
-    public float getValoreISEE() {
-        return valoreISEE;
+    public void setFascia_id(int fascia_id) {
+        this.fascia_id = fascia_id;
     }
 
-    public void setValoreISEE(float valoreISEE) {
-        this.valoreISEE = valoreISEE;
+    public String getNumeroFascia() {
+        return numeroFascia;
     }
 
+    public void setNumeroFascia(String numeroFascia) {
+        this.numeroFascia = numeroFascia;
+    }
 
+    public float getPrimaRata() {
+        return primaRata;
+    }
 
+    public void setPrimaRata(float primaRata) {
+        this.primaRata = primaRata;
+    }
 
+    public float getSecondaRata() {
+        return secondaRata;
+    }
+
+    public void setSecondaRata(float secondaRata) {
+        this.secondaRata = secondaRata;
+    }
+
+    public float getTerzaRata() {
+        return terzaRata;
+    }
+
+    public void setTerzaRata(float terzaRata) {
+        this.terzaRata = terzaRata;
+    }
 }
