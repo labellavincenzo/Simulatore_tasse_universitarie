@@ -11,7 +11,7 @@ public class CalcoloTassa {
     @Id
     private int fascia_id;
     //Con Column dico il nome della colonna di riferimento
-    @Column (name = "numero_fascia")
+    @Column (name = "fascia_tassa")
     private String numeroFascia;
 
     @Column (name = "prima_rata")
